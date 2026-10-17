@@ -156,6 +156,13 @@ DAYBREAK never scrapes or stores full copyrighted article bodies. We index publi
 
 ---
 
-## 👨‍💻 Author & Submission
-Created for **NaSCon '26 (Eynvision)**  
+## 👨‍💻 Author & Submission Deliverables
+Created for **NaSCon '26 (Eynvision) · Category: Build a Personal Morning Paper**  
 *Lead Engineer & Designer: Murtaza Hassan*
+
+### 📋 Submission Summary
+1. **GitHub Repository (Public):** [https://github.com/imurtazahassan/DayBreak](https://github.com/imurtazahassan/DayBreak)
+2. **Live Deployed Web App:** [https://day-break-n52lahore-murtazahassann01-2706.vercel.app](https://day-break-n52lahore-murtazahassann01-2706.vercel.app)
+3. **Product Demo Video (≤5 min):** [Watch Recording on Google Drive](https://drive.google.com/file/d/17bRD6KkrknAlvlrJLw8yAFgXEfIuuXnp/view?usp=drive_link)
+4. **Architecture Design Diagram:** Embedded in README & [docs/daybreak-architecture.png](docs/daybreak-architecture.png)
+5. **Official Submission Form:** [Google Form Link](https://forms.gle/4i4Gf8vNv3Vu8ZLJ7)

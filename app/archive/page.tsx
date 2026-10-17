@@ -67,7 +67,7 @@ export default function ArchivePage() {
                     </span>
                   )}
                 </div>
-                <Link href="/" className="block">
+                <Link href={`/?date=${edition.editionDate}`} className="block">
                   <h2 className="font-serif text-xl text-ink group-hover:text-forest transition-colors leading-snug">
                     {dateLabel}
                   </h2>
@@ -89,7 +89,7 @@ export default function ArchivePage() {
               {/* Actions */}
               <div className="flex items-center gap-2 ml-4 shrink-0">
                 <Link
-                  href="/"
+                  href={`/?date=${edition.editionDate}`}
                   className="text-xs text-ink-soft border border-rule px-3 py-1.5 hover:border-ink-soft hover:text-ink transition-colors"
                 >
                   Read

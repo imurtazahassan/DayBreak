@@ -2,20 +2,48 @@
 // Server component. Loads or builds today's edition, renders full newspaper.
 
 import { Suspense } from 'react'
-import { loadLatestEdition } from '@/lib/services/storage'
+import Link from 'next/link'
+import { loadLatestEdition, loadEdition } from '@/lib/services/storage'
 import { getFallbackEdition } from '@/lib/services/edition-builder'
 import { Masthead } from '@/components/shell/masthead'
 import { TodayPaper } from '@/components/paper/today-paper'
 import { BuildEditionButton } from '@/components/paper/build-edition-button'
+import { todayKey, formatEditionDate } from '@/lib/utils'
 
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
 
-export default async function HomePage() {
-  const edition = loadLatestEdition() ?? getFallbackEdition()
+type PageProps = {
+  searchParams?: Promise<{ date?: string }>
+}
+
+export default async function HomePage({ searchParams }: PageProps) {
+  const params = searchParams ? await searchParams : {}
+  const targetDate = params.date
+  const today = todayKey()
+
+  const edition = targetDate
+    ? (loadEdition(targetDate) ?? (targetDate === today ? getFallbackEdition() : null) ?? loadLatestEdition() ?? getFallbackEdition())
+    : (loadLatestEdition() ?? getFallbackEdition())
+
+  const isArchivedView = targetDate && edition.editionDate !== today
 
   return (
     <div className="min-h-dvh bg-paper">
+      {isArchivedView && (
+        <div className="bg-brass/10 border-b border-brass/30 px-4 py-2.5 text-xs font-mono text-ink flex items-center justify-between">
+          <span>
+            📜 Viewing archived edition from <strong>{formatEditionDate(edition.editionDate)}</strong>
+          </span>
+          <Link
+            href="/"
+            className="text-forest hover:underline font-semibold flex items-center gap-1"
+          >
+            Back to Today&apos;s Paper &rarr;
+          </Link>
+        </div>
+      )}
+
       <Masthead
         editionDate={edition.editionDate}
         editionNumber={edition.editionNumber}
@@ -23,14 +51,16 @@ export default async function HomePage() {
         totalReadingMinutes={edition.totalReadingMinutes}
       />
 
-      {/* Build Edition button — always visible for demo */}
+      {/* Build Edition button — visible for demo */}
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between border-b border-rule">
         <p className="text-xs text-ink-faint font-mono">
           {edition.isDemo
             ? 'Showing demo edition — press button to ingest live RSS feeds'
-            : `Live edition · ${edition.items.length} stories`}
+            : isArchivedView
+              ? `Archived edition · ${edition.items.length} stories`
+              : `Live edition · ${edition.items.length} stories`}
         </p>
-        <BuildEditionButton />
+        {!isArchivedView && <BuildEditionButton />}
       </div>
 
       <Suspense fallback={<PaperSkeleton />}>

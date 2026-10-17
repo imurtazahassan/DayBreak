@@ -61,8 +61,12 @@ export default function OnboardingPage() {
           })),
         }),
       })
-      // Trigger edition build
-      await fetch('/api/edition/build', { method: 'POST' })
+      // Trigger edition build with the newly chosen preferences
+      await fetch('/api/edition/build', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ forceRebuild: true }),
+      })
       router.push('/')
     } catch (err) {
       console.error(err)
