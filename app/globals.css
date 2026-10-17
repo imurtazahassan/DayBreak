@@ -1,26 +1,101 @@
 @import "tailwindcss";
 
+/* ── DAYBREAK design tokens ── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --paper:       #F7F4ED;
+  --ink:         #202722;
+  --ink-soft:    #4A5150;
+  --ink-faint:   #8A9492;
+  --forest:      #25483D;
+  --forest-light:#3A6B5C;
+  --terracotta:  #B84B37;
+  --brass:       #D9B66F;
+  --rule:        #D4CFC6;
+  --white:       #FFFFFF;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Colors */
+  --color-paper:        var(--paper);
+  --color-ink:          var(--ink);
+  --color-ink-soft:     var(--ink-soft);
+  --color-ink-faint:    var(--ink-faint);
+  --color-forest:       var(--forest);
+  --color-forest-light: var(--forest-light);
+  --color-terracotta:   var(--terracotta);
+  --color-brass:        var(--brass);
+  --color-rule:         var(--rule);
+  --color-background:   var(--paper);
+  --color-foreground:   var(--ink);
+
+  /* Fonts */
+  --font-serif: var(--font-dm-serif);
+  --font-sans:  var(--font-dm-sans);
+  --font-mono:  var(--font-mono-face);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ── Base ── */
+html {
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  min-height: 100dvh;
 }
+
+/* ── Typography utilities ── */
+.font-serif  { font-family: var(--font-dm-serif), Georgia, serif; }
+.font-mono   { font-family: var(--font-mono-face), monospace; }
+
+/* Kicker / label above headlines */
+.kicker {
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 0.6875rem;   /* 11px */
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Hairline horizontal rule */
+.rule-h  { border-top: 1px solid var(--rule); }
+.rule-hb { border-top: 2px solid var(--ink); }
+
+/* Edition badge */
+.edition-badge {
+  font-family: var(--font-mono-face), monospace;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+/* Focus ring — visible, accessible */
+:focus-visible {
+  outline: 2px solid var(--forest);
+  outline-offset: 2px;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Selection color ── */
+::selection {
+  background: var(--brass);
+  color: var(--ink);
+}
+
+/* ── Scrollbar (subtle) ── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--ink-faint); }
