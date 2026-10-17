@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "tsx scripts/test-ranking.ts"
+    "test": "tsx scripts/test-ranking.ts",
+    "postinstall": "node scripts/patch-hyphenate.js"
   },
   "dependencies": {
     "@react-pdf/renderer": "^4.9.0",
