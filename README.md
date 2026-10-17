@@ -54,6 +54,8 @@ Inspired by the editorial authority of the *Financial Times* and the design disc
 
 ## 🏗️ Architecture & Technology Stack
 
+![DAYBREAK System Architecture](docs/daybreak-architecture.png)
+
 - **Framework**: Next.js 16 (App Router with Turbopack) & React 19 Canary
 - **Styling**: Tailwind CSS v4 & Lucide Icons
 - **Motion**: Motion (`motion/react`)

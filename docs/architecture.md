@@ -7,6 +7,8 @@
 
 ## 1. System Overview & Architecture Diagram
 
+![DAYBREAK System Architecture](daybreak-architecture.png)
+
 ```mermaid
 flowchart TD
     subgraph INGESTION["1. News Ingestion Pipeline"]
