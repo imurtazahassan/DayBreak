@@ -86,7 +86,6 @@ export default async function StoryPage({ params }: Props) {
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 672px"
               priority
-              onError={() => {/* next/image handles error gracefully */}}
             />
           </div>
           {article.imageCredit && (
