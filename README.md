@@ -8,6 +8,12 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)](https://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
+### 🔗 Quick Links
+- 🌐 **Live Web Application:** [day-break-n52lahore-murtazahassann01-2706.vercel.app](https://day-break-n52lahore-murtazahassann01-2706.vercel.app)
+- 📹 **Walkthrough Video Recording:** [Watch Demo on Google Drive](https://drive.google.com/file/d/17bRD6KkrknAlvlrJLw8yAFgXEfIuuXnp/view?usp=drive_link)
+- 📑 **System Architecture:** [docs/architecture.md](docs/architecture.md)
+- 🎙️ **Video Pitch Script:** [docs/loom-script.md](docs/loom-script.md)
+
 ---
 
 ## 🗞️ What is DAYBREAK?
@@ -141,7 +147,7 @@ The test verifies:
 | **6. Archival Preservation** | ✅ Live | `/archive` with immutable past edition snapshots |
 | **7. Public Git Commits** | ✅ Live | Clean conventional commits pushed to GitHub |
 | **8. Architecture Docs** | ✅ Live | Detailed Mermaid diagrams in `/docs/architecture.md` |
-| **9. 5-Min Video Script** | ✅ Live | Full timed script in `/docs/loom-script.md` |
+| **9. 5-Min Video Demo** | ✅ [Watch Recording](https://drive.google.com/file/d/17bRD6KkrknAlvlrJLw8yAFgXEfIuuXnp/view?usp=drive_link) | Script in `/docs/loom-script.md` + [Video Demo](https://drive.google.com/file/d/17bRD6KkrknAlvlrJLw8yAFgXEfIuuXnp/view?usp=drive_link) |
 
 ---
 

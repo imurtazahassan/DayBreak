@@ -1,6 +1,9 @@
 # DAYBREAK — 5-Minute Video Pitch & Demo Script
 **NaSCon '26 Hackathon (Eynvision) · Category: Personal Morning Paper**
 
+> 📹 **Watch Video Recording:** [Google Drive Demo Video](https://drive.google.com/file/d/17bRD6KkrknAlvlrJLw8yAFgXEfIuuXnp/view?usp=drive_link)  
+> 🌐 **Live Web Application:** [day-break-n52lahore-murtazahassann01-2706.vercel.app](https://day-break-n52lahore-murtazahassann01-2706.vercel.app)
+
 ---
 
 ## ⏱️ Video Breakdown (Total: 5:00)
