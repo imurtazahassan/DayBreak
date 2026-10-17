@@ -127,7 +127,7 @@ The test verifies:
 
 ## Architecture
 
-![DAYBREAK architecture diagram](docs/architecture.png)
+daybreak-architecture.png
 
 ## 📋 Hackathon Evaluation Checklist
 
