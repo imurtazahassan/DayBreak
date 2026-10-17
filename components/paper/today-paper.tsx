@@ -43,7 +43,7 @@ function SectionHeader({ title }: { title: string }) {
       <h2 className="shrink-0 font-mono text-[11px] uppercase tracking-widest text-ink-faint">
         {title}
       </h2>
-      <div className="h-px flex-1 bg-border-rule" aria-hidden="true" />
+      <div className="h-px flex-1 bg-rule" aria-hidden="true" />
     </div>
   )
 }
@@ -95,7 +95,7 @@ function LeadStory({ item, isDemo }: { item: EditionItem; isDemo: boolean }) {
   return (
     <motion.article
       {...stagger(0)}
-      className="mb-10 border-b border-border-rule pb-10"
+      className="mb-10 border-b border-rule pb-10"
       aria-label={`Lead story: ${article.title}`}
     >
       {/* Hero image */}
@@ -163,7 +163,7 @@ function ThreeThings({ items }: { items: EditionItem[] }) {
   return (
     <motion.section
       {...stagger(1)}
-      className="mb-10 border-b border-border-rule pb-10"
+      className="mb-10 border-b border-rule pb-10"
       aria-labelledby="three-things-heading"
     >
       <SectionHeader title="3 Things to Know" />
@@ -278,7 +278,7 @@ function BriefCard({ item, animIndex }: StoryCardProps) {
   return (
     <motion.article
       {...stagger(animIndex)}
-      className="border-l-2 border-border-rule pl-3"
+      className="border-l-2 border-rule pl-3"
       aria-label={article.title}
     >
       <Link
@@ -318,7 +318,7 @@ function SectionBlock({ sectionKey, items, baseAnimIndex }: SectionBlockProps) {
   return (
     <motion.section
       {...stagger(baseAnimIndex)}
-      className="mb-10 border-b border-border-rule pb-10 last:border-0"
+      className="mb-10 border-b border-rule pb-10 last:border-0"
       aria-labelledby={`section-${sectionKey}`}
     >
       <div id={`section-${sectionKey}`}>
@@ -402,7 +402,7 @@ export default function TodayPaper({ edition }: TodayPaperProps) {
         {/* PDF download */}
         <motion.div
           {...stagger(globalAnimIndex)}
-          className="mt-10 flex justify-center border-t border-border-rule pt-8"
+          className="mt-10 flex justify-center border-t border-rule pt-8"
         >
           <Link
             href={`/api/pdf/${edition.editionDate}`}

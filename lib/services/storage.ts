@@ -7,7 +7,11 @@ import fs from 'fs'
 import path from 'path'
 import type { Article, Edition, FeedbackEvent, ReaderProfile } from '@/lib/types'
 
-const DATA_DIR = path.join(process.cwd(), 'data')
+// On Vercel, process.cwd() is read-only. Use /tmp for ephemeral writable storage.
+const DATA_DIR =
+  process.env.NODE_ENV === 'production'
+    ? path.join('/tmp', 'daybreak-data')
+    : path.join(process.cwd(), 'data')
 
 function ensureDir(dir: string) {
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true })
