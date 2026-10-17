@@ -8,6 +8,8 @@ import { DEMO_ARTICLES } from '@/lib/demo-data'
 import { relativeTime, formatEditionDate } from '@/lib/utils'
 import { DemoBadge } from '@/components/ui/demo-badge'
 import { StoryFeedback } from '@/components/story/story-feedback'
+import { generateWhyItMatters } from '@/lib/services/gemini'
+import { loadProfile } from '@/lib/services/storage'
 import { ArrowLeft, Clock, ExternalLink } from 'lucide-react'
 import type { Metadata } from 'next'
 
@@ -30,6 +32,15 @@ export default async function StoryPage({ params }: Props) {
   const article = loadArticleBySlug(slug) ?? DEMO_ARTICLES.find((a) => a.slug === slug)
 
   if (!article) notFound()
+
+  const profile = loadProfile('default')
+  const whyItMatters = await generateWhyItMatters({
+    title: article.title,
+    summary: article.summary,
+    categories: article.categories,
+    readerPersona: profile?.displayName || 'Pakistani university student',
+    readerTopics: profile?.topics || ['Technology', 'Climate', 'Business'],
+  })
 
   return (
     <article className="max-w-2xl mx-auto px-4 py-8 md:py-12">
@@ -93,10 +104,14 @@ export default async function StoryPage({ params }: Props) {
 
       {/* Why this matters */}
       <div className="border-l-2 border-brass pl-4 mb-8 bg-brass/5 py-3">
-        <p className="text-xs kicker text-brass mb-1">Why this may matter to you</p>
-        <p className="text-sm text-ink-soft leading-relaxed">
-          This story relates to <strong>{article.categories.join(', ')}</strong>, one of your followed topics.
-          {article.region !== 'global' && ` Coverage focuses on ${article.region}.`}
+        <div className="flex items-center gap-2 mb-1">
+          <p className="text-xs kicker text-brass">Why this matters to you</p>
+          <span className="font-mono text-[9px] bg-brass/20 text-ink-soft px-1.5 py-0.5 uppercase tracking-wider">
+            AI Editorial Analysis
+          </span>
+        </div>
+        <p className="text-sm text-ink-soft leading-relaxed italic">
+          &ldquo;{whyItMatters}&rdquo;
         </p>
       </div>
 
