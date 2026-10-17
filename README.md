@@ -125,6 +125,10 @@ The test verifies:
 
 ---
 
+## Architecture
+
+![DAYBREAK architecture diagram](docs/architecture.png)
+
 ## 📋 Hackathon Evaluation Checklist
 
 | Criteria | Implementation Status | Notes |
